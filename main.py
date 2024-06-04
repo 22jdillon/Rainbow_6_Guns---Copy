@@ -17,3 +17,10 @@ guns = cursor.fetchall()
 
 for gun in guns:
     print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Damage: {gun[2]:<5}")
+
+cursor.execute('SELECT name, weapon_type, fire_rate FROM Rainbow_6_Guns WHERE fire_rate > 0 ORDER BY fire_rate DESC;')
+
+guns = cursor.fetchall()
+
+for gun in guns:
+    print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Fire rate: {gun[2]:<5}")
