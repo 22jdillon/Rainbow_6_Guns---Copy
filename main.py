@@ -6,8 +6,8 @@ cursor = conn.cursor() #This connects to the cursur (the flashing line) in your 
 
 cursor.execute('SELECT * FROM Rainbow_6_Guns;') #This tells the cursor to type/execute 'SELECT * FROM Rainbow_6_Guns;'
 
-results = cursor.fetchall() #this gets the output of the last statment
+guns = cursor.fetchall() #this gets the output of the last statment
 
-print(results) #this prints the output of the execution
-
-print("hello world")
+print(guns) #this prints the output of the execution
+for gun in guns:
+    print(f"Name: {gun[1]} Weapon Type: {gun[2]} Damage: {gun[3]}, Fire rate: {gun[4]}, Mobility: {gun[5]} and Capacity: {gun[6]}")
