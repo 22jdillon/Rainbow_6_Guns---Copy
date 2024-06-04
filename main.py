@@ -9,4 +9,3 @@ cursor.execute('SELECT * FROM Rainbow_6_Guns;') #This tells the cursor to type/e
 results = cursor.fetchall() #this gets the output of the last statment
 
 print(results) #this prints the output of the execution
- 
