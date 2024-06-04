@@ -8,6 +8,5 @@ cursor.execute('SELECT * FROM Rainbow_6_Guns;') #This tells the cursor to type/e
 
 guns = cursor.fetchall() #this gets the output of the last statment
 
-print(guns) #this prints the output of the execution
 for gun in guns:
     print(f"Name: {gun[1]} Weapon Type: {gun[2]} Damage: {gun[3]}, Fire rate: {gun[4]}, Mobility: {gun[5]} and Capacity: {gun[6]}")
