@@ -4,9 +4,6 @@ conn = sqlite3.connect('R6-Guns.db') #This connects to the 'R6-Guns.db' table
 
 cursor = conn.cursor() #This connects to the cursur (the flashing line) in your database
 
-
-
-
 def get_all_guns():
     cursor.execute('SELECT * FROM Rainbow_6_Guns;') #This tells the cursor to type/execute 'SELECT * FROM Rainbow_6_Guns;'
 
