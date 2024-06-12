@@ -1,8 +1,26 @@
 import sqlite3 #This connects to sqlite
 
+import os
+
+import time
+
 conn = sqlite3.connect('R6-Guns.db') #This connects to the 'R6-Guns.db' table
 
 cursor = conn.cursor() #This connects to the cursur (the flashing line) in your database
+def siege_guns():
+    print(R"""
+ ______     __     ______     ______     ______        ______     __  __     __   __     ______    
+/\  ___\   /\ \   /\  ___\   /\  ___\   /\  ___\      /\  ___\   /\ \/\ \   /\ "-.\ \   /\  ___\   
+\ \___  \  \ \ \  \ \  __\   \ \ \__ \  \ \  __\      \ \ \__ \  \ \ \_\ \  \ \ \-.  \  \ \___  \  
+ \/\_____\  \ \_\  \ \_____\  \ \_____\  \ \_____\     \ \_____\  \ \_____\  \ \_\\"\_\  \/\_____\ 
+  \/_____/   \/_/   \/_____/   \/_____/   \/_____/      \/_____/   \/_____/   \/_/ \/_/   \/_____/ 
+                                                                                                   """)
+
+def continue_():
+    input("Click any button to continue\n> ")
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def get_all_guns():
     cursor.execute('SELECT * FROM Rainbow_6_Guns;') #This tells the cursor to type/execute 'SELECT * FROM Rainbow_6_Guns;'
@@ -11,10 +29,10 @@ def get_all_guns():
 
     for gun in all_guns:
         if gun[4] == 0:
-            print(f"Name: {gun[1]:<14}  Weapon Type: {gun[2]:<17} Damage: {gun[3]:<3}  Fire-rate: Single-fire  Mobility: {gun[5]:<1}  Capacity: {gun[6]:<1}")
+            print(f"Name: {gun[1]:<14}  Weapon Type: {gun[2]:<17} Damage: {gun[3]:<3}  Fire-rate: Single-fire      Mobility: {gun[5]:<1}  Capacity: {gun[6]:<1}")
         else:
-            print(f"Name: {gun[1]:<14}  Weapon Type: {gun[2]:<17} Damage: {gun[3]:<3}  Fire-rate: {gun[4]:<4}  Mobility: {gun[5]:<1}  Capacity: {gun[6]:<1}")
-
+            print(f"Name: {gun[1]:<14}  Weapon Type: {gun[2]:<17} Damage: {gun[3]:<3}  Fire-rate: {gun[4]:<15}  Mobility: {gun[5]:<1}  Capacity: {gun[6]:<1}")
+ 
 def get_guns_by_high_damage():
     cursor.execute('SELECT name, weapon_type, fire_rate, damage FROM Rainbow_6_Guns ORDER BY damage DESC;')
 
@@ -151,62 +169,120 @@ def get_all_submachine_guns():
         else:
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: {gun[2]:<12} Capacity: {gun[3]:<5}")
 
+
+
+
 while True:
-    choice_1 = input("1 = Damage\n2 = Fire rate\n3 = Capacity\n4 = Types of weapons\n5 = All Semi-auto\n6 = All weapons\n7 = Exit\n> ")
-    if choice_1 == "1":
-        choice_2 = input("1 = Low to high damage\n2 = High to low damage\n> ")
-        if choice_2 == "1":
-            get_guns_by_low_damage()
-        elif choice_2 == "2":
-            get_guns_by_high_damage()
-        else:
-            print("unknown command. Please try again!")
+    siege_guns()
     
+ 
+    choice_1 = input("1 = Damage\n2 = Fire rate\n3 = Capacity\n4 = Types of weapons\n5 = All Semi-auto\n6 = All weapons\n7 = Exit\n> ")
+    clear()
+    if choice_1 == "1":
+        while True:
+            choice_2 = input("1 = Low to high damage\n2 = High to low damage\n> ")
+            clear()
+            if choice_2 == "1":
+                get_guns_by_low_damage()
+                continue_()
+                clear()
+                break
+            elif choice_2 == "2":
+                get_guns_by_high_damage()
+                continue_()
+                clear()
+                break
+            else:
+                print("Unknown command. Please try again!\nPlease enter the corresponding number:\n")
     
     elif choice_1 == "2":
-        choice_2 = input("1 = Low to high fire rate\n2 = High to low fire rate\n> ")
-        if choice_2 == "1":
-            get_guns_by_low_fire_rate()
-        elif choice_2 == "2":
-            get_guns_by_high_fire_rate()
-        else:
-             print("unknown command. Please try again!")
-    
+        while True:
+            choice_2 = input("1 = Low to high fire rate\n2 = High to low fire rate\n> ")
+            clear()
+            if choice_2 == "1":
+                get_guns_by_low_fire_rate()
+                continue_()
+                clear()
+                break
+            elif choice_2 == "2":
+                get_guns_by_high_fire_rate()
+                continue_()
+                clear()
+                break
+            else:
+                print("Unknown command. Please try again!\nPlease enter the corresponding number:\n")
     
     elif choice_1 == "3":
-        choice_2 = input("1 = Low to high capacity\n2 = High to low capacity\n> ")
-        if choice_2 == "1":
-            get_guns_by_low_capacity()
-        elif choice_2 == "2":
-            get_guns_by_high_capacity()
-        else:
-            print("unknown command. Please try again!")
-    
+        while True:
+            choice_2 = input("1 = Low to high capacity\n2 = High to low capacity\n> ")
+            clear()
+            if choice_2 == "1":
+                get_guns_by_low_capacity()
+                continue_()
+                clear()
+                break
+            elif choice_2 == "2":
+                get_guns_by_high_capacity()
+                continue_()
+                clear()
+                break
+            else:
+                print("Unknown command. Please try again!\nPlease enter the corresponding number:\n")
     
     elif choice_1 == "4":
-        choice_2 = input("1 = Assault rifles\n2 = Light machine guns\n3 = Marksman rifles\n4 = Shotguns\n5 = Snipers\n6 = Submachine guns\n> ")
-        if choice_2 == "1":
-            get_all_assault_rifles()
-        elif choice_2 == "2":
-            get_all_light_machine_guns()
-        elif choice_2 == "3":
-            get_all_marksman_rifles()
-        elif choice_2 == "4":
-            get_all_shotguns()
-        elif choice_2 == "5":
-            get_all_sniper_rifles()
-        elif choice_2 == "6":
-            get_all_submachine_guns()
-        else:
-            print("unknown command. Please try again!")
-    
+        while True:
+            choice_2 = input("1 = Assault rifles\n2 = Light machine guns\n3 = Marksman rifles\n4 = Shotguns\n5 = Snipers\n6 = Submachine guns\n> ")
+            clear()
+            if choice_2 == "1":
+                get_all_assault_rifles()
+                continue_()
+                clear()
+                break
+            elif choice_2 == "2":
+                get_all_light_machine_guns()
+                continue_()
+                clear()
+                break
+            elif choice_2 == "3":
+                get_all_marksman_rifles()
+                continue_()
+                clear()
+                break
+            elif choice_2 == "4":
+                get_all_shotguns()
+                continue_()
+                clear()
+                break
+            elif choice_2 == "5":
+                get_all_sniper_rifles()
+                continue_()
+                clear()
+                break
+            elif choice_2 == "6":
+                get_all_submachine_guns()
+                continue_()
+                break
+            else:
+                print("Unknown command. Please try again!\nPlease enter the corresponding number:\n")
     
     elif choice_1 == "5":
         get_all_semi_auto_guns()   
+        continue_()
+        clear()
     elif choice_1 == "6":
         get_all_guns()
+        continue_()
+        clear()
     elif choice_1 == "7":
+        print(R"""
+______                                                     _          _ 
+| ___ \                                                   | |        | |
+| |_/ / __ ___   __ _ _ __ __ _ _ __ ___     ___ _ __   __| | ___  __| |
+|  __/ '__/ _ \ / _` | '__/ _` | '_ ` _ \   / _ \ '_ \ / _` |/ _ \/ _` |
+| |  | | | (_) | (_| | | | (_| | | | | | | |  __/ | | | (_| |  __/ (_| |
+\_|  |_|  \___/ \__, |_|  \__,_|_| |_| |_|  \___|_| |_|\__,_|\___|\__,_|
+                __/ |                                                  
+                |___/                                                   """)
         break
     else:
-        print("unknown command. Please try again!")
-    
+        print("Unknown command. Please try again!\nPlease enter the corresponding number:\n")
