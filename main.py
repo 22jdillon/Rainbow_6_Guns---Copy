@@ -45,6 +45,7 @@ def get_guns_by_high_damage():
             print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17} Fire rate: Single-fire  Damage: {gun[3]:<5}")
         else:
             print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17} Fire rate: {gun[2]:<12} Damage: {gun[3]:<5}")
+#this section sorts the damage of all the guns in r6 and sorts it form high to low
 
 def get_guns_by_low_damage():
     cursor.execute('SELECT name, weapon_type, fire_rate, damage FROM Rainbow_6_Guns ORDER BY damage')
@@ -56,6 +57,7 @@ def get_guns_by_low_damage():
             print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17} Fire rate: Single-fire  Damage: {gun[3]:<5}")
         else:
             print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17} Fire rate: {gun[2]:<12} Damage: {gun[3]:<5}")
+#this section sorts the damage of all the guns in r6 and sorts it form low to high
 
 def get_guns_by_high_fire_rate():
     cursor.execute('SELECT name, weapon_type, damage, fire_rate FROM Rainbow_6_Guns ORDER BY fire_rate DESC;')
@@ -68,6 +70,7 @@ def get_guns_by_high_fire_rate():
             print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Damage: {gun[2]:<5}  Fire rate: Single-fire")
         else:
             print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Damage: {gun[2]:<5}  Fire rate: {gun[3]}")
+#this section sorts the fire rate of all the guns in r6 and sorts it form high to low
 
 def get_guns_by_low_fire_rate():
     cursor.execute('SELECT name, weapon_type, damage, fire_rate FROM Rainbow_6_Guns ORDER BY fire_rate')
@@ -79,6 +82,7 @@ def get_guns_by_low_fire_rate():
             print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Damage: {gun[2]:<5}  Fire rate: Single-fire")
         else:
             print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Damage: {gun[2]:<5}  Fire rate: {gun[3]}")
+#this section sorts the fire rate of all the guns in r6 and sorts it form low to high
 
 def get_guns_by_high_capacity():
     cursor.execute('SELECT name, weapon_type, mobility, capacity FROM Rainbow_6_Guns ORDER BY capacity DESC')
@@ -87,6 +91,7 @@ def get_guns_by_high_capacity():
 
     for gun in high_capacity:
         print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Mobility: {gun[2]:<5}  Capacity: {gun[3]:<5}")
+#this section sorts the capacity of all the guns in r6 and sorts it form high to low
 
 def get_guns_by_low_capacity():
     cursor.execute('SELECT name, weapon_type, mobility, capacity FROM Rainbow_6_Guns ORDER BY capacity')
@@ -95,6 +100,7 @@ def get_guns_by_low_capacity():
 
     for gun in low_capacity:
         print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Mobility: {gun[2]:<5}  Capacity: {gun[3]:<5}")
+#this section sorts the capacity of all the guns in r6 and sorts it form low to high
 
 def get_all_semi_auto_guns():
     cursor.execute('SELECT name, weapon_type, damage FROM Rainbow_6_Guns WHERE fire_rate = 0')
@@ -103,7 +109,7 @@ def get_all_semi_auto_guns():
 
     for gun in semi_auto:
         print(f"Name: {gun[0]:<16}  Weapon Type: {gun[1]:<17}  Damage: {gun[2]:<5}")
-
+#this section sorts all the semi automatic guns 
 
 def get_all_assault_rifles():
     cursor.execute('SELECT name, damage, fire_rate, capacity FROM Rainbow_6_Guns WHERE weapon_type = "assault rifle"')
@@ -115,6 +121,7 @@ def get_all_assault_rifles():
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: Single-fire  Capacity: {gun[3]:<5}")
         else:
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: {gun[2]:<12} Capacity: {gun[3]:<5}")
+#this section sorts all the assault 
 
 def get_all_light_machine_guns():
     cursor.execute('SELECT name, damage, fire_rate, capacity FROM Rainbow_6_Guns WHERE weapon_type = "light machine gun"')
@@ -126,6 +133,7 @@ def get_all_light_machine_guns():
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: Single-fire  Capacity: {gun[3]:<5}")
         else:
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: {gun[2]:<12} Capacity: {gun[3]:<5}")
+#this section sorts all the LMGs
 
 def get_all_marksman_rifles():
     cursor.execute('SELECT name, damage, fire_rate, capacity FROM Rainbow_6_Guns WHERE weapon_type = "marksman rifle"')
@@ -137,6 +145,7 @@ def get_all_marksman_rifles():
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: Single-fire  Capacity: {gun[3]:<5}")
         else:
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: {gun[2]:<12} Capacity: {gun[3]:<5}")
+#this section sorts all the marksman rifles
 
 def get_all_shotguns():
     cursor.execute('SELECT name, damage, fire_rate, capacity FROM Rainbow_6_Guns WHERE weapon_type = "shotgun"')
@@ -148,6 +157,7 @@ def get_all_shotguns():
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: Single-fire  Capacity: {gun[3]:<5}")
         else:
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: {gun[2]:<12} Capacity: {gun[3]:<5}")
+#this section sorts all the shotguns
 
 def get_all_sniper_rifles():
     cursor.execute('SELECT name, damage, fire_rate, capacity FROM Rainbow_6_Guns WHERE weapon_type = "sniper rifle"')
@@ -159,6 +169,7 @@ def get_all_sniper_rifles():
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: Single-fire  Capacity: {gun[3]:<5}")
         else:
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: {gun[2]:<12} Capacity: {gun[3]:<5}")
+#this section sortts all the sniper rilfes 
 
 def get_all_submachine_guns():
     cursor.execute('SELECT name, damage, fire_rate, capacity FROM Rainbow_6_Guns WHERE weapon_type = "submachine gun"')
@@ -170,6 +181,7 @@ def get_all_submachine_guns():
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: Single-fire  Capacity: {gun[3]:<5}")
         else:
             print(f"Name: {gun[0]:<16}  Damage: {gun[1]:<7} Fire rate: {gun[2]:<12} Capacity: {gun[3]:<5}")
+#this section sorts all the submachine guns
 
 while True: #this creates an loop that will repete forever untill you "break" it or if its overrun by another loop.
     siege_guns()
@@ -287,3 +299,4 @@ ______                                                     _          _
         break # this breaks the main loop and end the whole program
     else:
         print("Unknown command. Please try again!\nPlease enter the corresponding number:\n")
+#this is the menu 
